@@ -1,0 +1,55 @@
+#include<stdio.h>
+int cycle_length(int x)
+{
+int count=1;
+    while(x!=1){
+    
+    if(x%2==0){
+    x=x/2;
+    }
+    else if(x%2==1)
+    {
+    x=3*x+1;
+    }
+    
+    
+    count++;
+    }
+     
+     return count;
+    
+    }
+
+
+int func(int a,int b)
+{ int length=0;
+    if(a>b)
+    {
+    int temp;
+    temp=a;
+    a=b;
+    b=temp;
+    }
+    while(a<=b)
+{
+    int k;
+    k=a;
+    if(length<cycle_length(k))
+    {
+      length=cycle_length(k);
+    }
+    a++;
+    
+}
+return length;}
+    
+int main()
+{ 
+    int a;int b;
+    
+while (scanf("%d %d",&a,&b)!=EOF){
+int result= func(a,b);
+printf("%d %d %d\n",a,b,result);
+}
+    
+}
